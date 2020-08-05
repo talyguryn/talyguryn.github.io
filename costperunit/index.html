@@ -9,18 +9,14 @@
     <script src="https://unpkg.com/vue"></script>
     <style>
         html, body {
-            height: 100%;
             font-family: Roboto;
         }
         body {
             margin: 0;
-            height: 100%;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
         #app {
+            margin: 50px auto 0;
+            width: 250px;
             display: flex;
             justify-content: center;
             flex-direction: column;
@@ -43,7 +39,7 @@
         .data {
             display: flex;
             flex-direction: row;
-            width: 250px;
+            width: 100%;
             align-items: center;
             justify-content: space-between;
             margin: 8px 0;
@@ -120,7 +116,7 @@
 
         <div class="history">
             <div class="history__item"
-                 v-for="(item, index) in historyItems.slice(-5).reverse()">
+                 v-for="(item, index) in historyItems.slice().reverse()">
                 {{ item.cost }} per item <span class="text--gray">{{ item.value }} for {{ item.price }}</span>
             </div>
         </div>
