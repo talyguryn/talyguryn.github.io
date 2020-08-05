@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cost per unit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:100,400,300,500,700,900' rel='stylesheet' type='text/css'>
+    <link rel="apple-touch-icon" href="/logo.png">
+    <script src="https://unpkg.com/vue"></script>
+    <style>
+        html, body {
+            height: 100%;
+            font-family: Roboto;
+        }
+        body {
+            margin: 0;
+            height: 100%;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #app {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .result {
+            margin: 20px 0;
+        }
+
+        .result__header {
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .result__price {
+            text-align: center;
+            font-size: 64px;
+        }
+
+        .data {
+            display: flex;
+            flex-direction: row;
+            width: 250px;
+            align-items: center;
+            justify-content: space-between;
+            margin: 8px 0;
+        }
+
+        .data__label {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .data__input {
+            padding: 4px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 32px;
+            width: 150px;
+            text-align: right;
+
+        }
+        .data__input::placeholder {
+            color: #ccc;
+        }
+        .data__input:focus {
+            outline: none;
+        }
+
+        .history {
+            margin-top: 30px;
+        }
+        .history__item {
+            margin: 8px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .text--gray {
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="result"
+            @click="saveToHistory"
+        >
+            <div class="result__header">Cost per unit</div>
+            <div class="result__price">{{ cost }}</div>
+        </div>
+
+        <div class="data">
+            <div class="data__label">
+                Weight / Volume / Amount
+            </div>
+            <input
+                class="data__input"
+                ref="value"
+                type="number"
+                placeholder="2"
+                v-model="value"
+            >
+        </div>
+
+        <div class="data">
+            <div class="data__label">
+                Price
+            </div>
+            <input
+                class="data__input"
+                ref="value"
+                type="number"
+                placeholder="29.99"
+                v-model="price"
+            >
+        </div>
+
+        <div class="history">
+            <div class="history__item"
+                 v-for="(item, index) in historyItems.slice(-5).reverse()">
+                {{ item.cost }} per item <span class="text--gray">{{ item.value }} for {{ item.price }}</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    value: null,
+                    price: null,
+                    historyItems: [],
+                    historyIsLocked: true,
+                }
+            },
+            computed: {
+                cost() {
+                    let cost = this.price / this.value;
+
+                    cost = isFinite(cost) ? cost.toFixed(2) : '0.00';
+
+                    this.historyIsLocked = false;
+
+                    return cost;
+                }
+            },
+            methods: {
+              saveToHistory() {
+                if (!this.price || !this.value) {
+                  return;
+                }
+
+                const item = {
+                  price: this.price,
+                  value: this.value,
+                  cost: this.cost
+                }
+
+                if (this.historyIsLocked) {
+                  return;
+                }
+
+                this.historyItems.push(item);
+
+                this.historyIsLocked = true;
+              }
+            }
+        })
+    </script>
+</body>
+</html>
