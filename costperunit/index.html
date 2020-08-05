@@ -13,8 +13,29 @@
 
     <script src="https://unpkg.com/vue"></script>
     <style>
+        :root {
+            --color-bg: #fff;
+            --color-bg-input: #fff;
+            --color-text--main: #000;
+            --color-text--secondary: #ccc;
+
+            --outline: 1px solid var(--color-text--secondary);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg: #000;
+                --color-bg-input: #333;
+                --color-text--main: #eee;
+                --color-text--secondary: #ccc;
+
+                --outline: none;
+            }
+        }
+
         html, body {
             font-family: Roboto;
+            background-color: var(--color-bg);
         }
         body {
             margin: 0;
@@ -29,6 +50,7 @@
 
         .result {
             margin: 20px 0;
+            color: var(--color-text--main);
         }
 
         .result__header {
@@ -52,20 +74,21 @@
 
         .data__label {
             font-size: 14px;
-            color: #ccc;
+            color: var(--color-text--secondary);
         }
 
         .data__input {
             padding: 4px;
-            border: 1px solid #ccc;
+            border: var(--outline);
             border-radius: 5px;
             font-size: 32px;
             width: 150px;
             text-align: right;
-
+            background-color: var(--color-bg-input);
+            color: var(--color-text--main);
         }
         .data__input::placeholder {
-            color: #ccc;
+            color: var(--color-text--secondary);
         }
         .data__input:focus {
             outline: none;
@@ -78,9 +101,10 @@
             margin: 8px 0;
             display: flex;
             justify-content: space-between;
+            color: var(--color-text--main);
         }
         .text--gray {
-            color: #ccc;
+            color: var(--color-text--secondary);
         }
     </style>
 </head>
