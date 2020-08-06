@@ -17,10 +17,6 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
 
     <script src="https://vuejs.org/js/vue.min.js"></script>
-    <script src="script.js" onload="document.getElementById('app').style.display = 'block';"></script>
-    <style>
-
-    </style>
 </head>
 <body>
     <div id="app" style="display: none">
@@ -64,5 +60,60 @@
             </div>
         </div>
     </div>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .register('sw.js')
+          .then(function() { console.log('Service Worker Registered'); });
+      }
+
+      new Vue({
+        el: '#app',
+        data() {
+          return {
+            value: null,
+            price: null,
+            historyItems: [],
+            historyIsLocked: true,
+          }
+        },
+        computed: {
+          cost() {
+            let cost = this.price / this.value;
+
+            cost = isFinite(cost) ? cost.toFixed(2) : '0.00';
+
+            this.historyIsLocked = false;
+
+            return cost;
+          }
+        },
+        methods: {
+          saveToHistory() {
+            if (!this.price || !this.value) {
+              return;
+            }
+
+            const item = {
+              price: this.price,
+              value: this.value,
+              cost: this.cost
+            }
+
+            if (this.historyIsLocked) {
+              return;
+            }
+
+            this.historyItems.push(item);
+
+            this.historyIsLocked = true;
+          }
+        },
+        mounted: function () {
+          document.getElementById('app').style.display = 'block';
+        }
+      })
+    </script>
 </body>
 </html>

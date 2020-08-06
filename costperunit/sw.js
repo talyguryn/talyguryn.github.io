@@ -4,7 +4,6 @@ self.addEventListener('install', function(e) {
       return cache.addAll([
         '/costperunit/',
         '/costperunit/index.html',
-        '/costperunit/script.js',
         '/costperunit/style.css'
       ]);
     })
