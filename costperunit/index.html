@@ -1,111 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>Cost per unit</title>
+
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link href='https://fonts.googleapis.com/css?family=Roboto:100,400,300,500,700,900' rel='stylesheet' type='text/css'>
-    <link rel="apple-touch-icon" href="logo.png">
-    <link rel="shortcut icon" type="image/png" href="logo.png">
     <meta property="og:title" content="Cost per unit calculator">
-    <meta property="og:image" content="https://talyguryn.github.io/costperunit/logo.png">
-    <meta name="description" property="og:description" content="How much does one item cost?">
+    <meta property="og:description" content="How much does one item cost?" name="description">
+    <meta property="og:image" content="https://talyguryn.github.io/costperunit/public/icons/logo-114x114.png">
 
-    <script src="https://unpkg.com/vue"></script>
+    <link rel="apple-touch-icon" href="public/icons/logo-114x114.png">
+    <link rel="shortcut icon" type="image/png" href="public/icons/logo-114x114.png">
+    <link rel="manifest" href="public/manifest.webmanifest">
+
+    <link rel="stylesheet" href="public/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
+
+    <script src="https://vuejs.org/js/vue.min.js"></script>
     <style>
-        :root {
-            --color-bg: #fff;
-            --color-bg-input: #fff;
-            --color-text--main: #000;
-            --color-text--secondary: #ccc;
 
-            --outline: 1px solid var(--color-text--secondary);
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --color-bg: #000;
-                --color-bg-input: #333;
-                --color-text--main: #eee;
-                --color-text--secondary: #555;
-
-                --outline: none;
-            }
-        }
-
-        html, body {
-            font-family: Roboto;
-            background-color: var(--color-bg);
-        }
-        body {
-            margin: 0;
-        }
-        #app {
-            margin: 50px auto 0;
-            width: 250px;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-        }
-
-        .result {
-            margin: 20px 0;
-            color: var(--color-text--main);
-        }
-
-        .result__header {
-            text-align: center;
-            font-size: 16px;
-        }
-
-        .result__price {
-            text-align: center;
-            font-size: 64px;
-        }
-
-        .data {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            align-items: center;
-            justify-content: space-between;
-            margin: 8px 0;
-        }
-
-        .data__label {
-            font-size: 14px;
-            color: var(--color-text--secondary);
-        }
-
-        .data__input {
-            padding: 4px;
-            border: var(--outline);
-            border-radius: 5px;
-            font-size: 32px;
-            width: 150px;
-            text-align: right;
-            background-color: var(--color-bg-input);
-            color: var(--color-text--main);
-        }
-        .data__input::placeholder {
-            color: var(--color-text--secondary);
-        }
-        .data__input:focus {
-            outline: none;
-        }
-
-        .history {
-            margin-top: 30px;
-        }
-        .history__item {
-            margin: 8px 0;
-            display: flex;
-            justify-content: space-between;
-            color: var(--color-text--main);
-        }
-        .text--gray {
-            color: var(--color-text--secondary);
-        }
     </style>
 </head>
 <body>
@@ -146,7 +59,7 @@
         <div class="history">
             <div class="history__item"
                  v-for="(item, index) in historyItems.slice().reverse()">
-                {{ item.cost }} per item <span class="text--gray">{{ item.value }} for {{ item.price }}</span>
+                {{ item.cost }} per unit <span class="text--gray">{{ item.value }} for {{ item.price }}</span>
             </div>
         </div>
     </div>
