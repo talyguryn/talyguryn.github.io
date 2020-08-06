@@ -7,16 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta property="og:title" content="Cost per unit calculator">
     <meta property="og:description" content="How much does one item cost?" name="description">
-    <meta property="og:image" content="https://talyguryn.github.io/costperunit/public/icons/logo-114x114.png">
+    <meta property="og:image" content="https://talyguryn.github.io/costperunit/icons/logo-114x114.png">
 
-    <link rel="apple-touch-icon" href="public/icons/logo-114x114.png">
-    <link rel="shortcut icon" type="image/png" href="public/icons/logo-114x114.png">
-    <link rel="manifest" href="public/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="icons/logo-114x114.png">
+    <link rel="shortcut icon" type="image/png" href="icons/logo-114x114.png">
+    <link rel="manifest" href="manifest.webmanifest">
 
-    <link rel="stylesheet" href="public/style.css">
+    <link rel="stylesheet" href="style.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
 
-    <script src="https://vuejs.org/js/vue.min.js"></script>
+    <script src="https://vuejs.org/js/vue.min.js" defer></script>
+    <script src="script.js" defer></script>
     <style>
 
     </style>
@@ -63,50 +64,5 @@
             </div>
         </div>
     </div>
-    <script>
-        new Vue({
-            el: '#app',
-            data() {
-                return {
-                    value: null,
-                    price: null,
-                    historyItems: [],
-                    historyIsLocked: true,
-                }
-            },
-            computed: {
-                cost() {
-                    let cost = this.price / this.value;
-
-                    cost = isFinite(cost) ? cost.toFixed(2) : '0.00';
-
-                    this.historyIsLocked = false;
-
-                    return cost;
-                }
-            },
-            methods: {
-              saveToHistory() {
-                if (!this.price || !this.value) {
-                  return;
-                }
-
-                const item = {
-                  price: this.price,
-                  value: this.value,
-                  cost: this.cost
-                }
-
-                if (this.historyIsLocked) {
-                  return;
-                }
-
-                this.historyItems.push(item);
-
-                this.historyIsLocked = true;
-              }
-            }
-        })
-    </script>
 </body>
 </html>

@@ -4,12 +4,12 @@
   "display": "fullscreen",
   "icons": [
     {
-      "src": "https://talyguryn.github.io/costperunit/public/icons/logo-192x192.png",
+      "src": "icons/logo-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     }
   ],
   "name": "Cost per unit calculator",
   "short_name": "Cost per unit",
-  "start_url": "https://talyguryn.github.io/costperunit/index.html"
+  "start_url": "/costperunit/index.html"
 }
