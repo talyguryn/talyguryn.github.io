@@ -17,13 +17,13 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
 
     <script src="https://vuejs.org/js/vue.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js" onload="document.getElementById('app').style.display = 'block';"></script>
     <style>
 
     </style>
 </head>
 <body>
-    <div id="app">
+    <div id="app" style="display: none">
         <div class="result"
             @click="saveToHistory"
         >
