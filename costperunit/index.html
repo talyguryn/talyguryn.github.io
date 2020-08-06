@@ -11,7 +11,6 @@
 
     <link rel="apple-touch-icon" href="icons/logo-114x114.png">
     <link rel="shortcut icon" type="image/png" href="icons/logo-114x114.png">
-    <link rel="manifest" href="manifest.webmanifest">
 
     <link href='https://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
 
@@ -170,12 +169,6 @@
     </div>
 
     <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-          .register('sw.js')
-          .then(function() { console.log('Service Worker Registered'); });
-      }
-
       new Vue({
         el: '#app',
         data() {
