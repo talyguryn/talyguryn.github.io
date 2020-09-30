@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__logo"></div>
+    <div class="header__icon header__icon--ava"></div>
+    <div class="header__elements">
+      <div class="header__search"></div>
+      <div class="header__icons">
+        <div class="header__icon"></div>
+        <div class="header__icon"></div>
+        <div class="header__icon"></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="page">
+    <aside class="page__aside">
+      <div class="page__aside-item w--30p"></div>
+      <div class="page__aside-item w--30p"></div>
+      <div class="page__aside-item w--40p"></div>
+      <div class="page__aside-item w--50p"></div>
+      <div class="page__aside-item w--60p"></div>
+      <div class="page__aside-item w--20p"></div>
+
+      <div class="page__aside-item page__aside-item--thin w--50p"></div>
+      <div class="page__aside-item page__aside-item--thin w--50p"></div>
+      <div class="page__aside-item page__aside-item--thin w--40p"></div>
+      <div class="page__aside-item page__aside-item--thin w--50p"></div>
+      <div class="page__aside-item page__aside-item--thin w--60p"></div>
+      <div class="page__aside-item page__aside-item--thin w--60p"></div>
+
+      <div class="page__aside-item w--40p"></div>
+      <div class="page__aside-item w--40p"></div>
+      <div class="page__aside-item w--50p"></div>
+      <div class="page__aside-item w--40p"></div>
+      <div class="page__aside-item w--60p"></div>
+      <div class="page__aside-item w--30p"></div>
+    </aside>
+    <div class="page__content">
+      <div class="page__header">
+        <div class="page__header-title">
+          Chevrolet Spark › Бортжурнал
+        </div>
+
+
+        <span class="button button--new" id="button-new">Новая запись</span>
+<!--        <div class="user">-->
+<!--          <div class="user__ava"></div>-->
+<!--          <div class="user__name">guryn</div>-->
+<!--        </div>-->
+      </div>
+      <article class="block">
+
+        <div id="editor-wrapper">
+          <div id="editor"></div>
+          <div class="actions">
+            <span class="button" id="button-save">Сохранить</span>
+          </div>
+        </div>
+
+        <div id="article-wrapper" style="display: none">
+          <div id="article-content"></div>
+          <div class="actions">
+            <span class="button" id="button-edit">Редактировать</span>
+          </div>
+        </div>
+
+        <div class="page__footer"></div>
+      </article>
+    </div>
+  </div>
+
+  <footer></footer>
+</body>
+</html>
