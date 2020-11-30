@@ -98,7 +98,7 @@
                 var imageSrc = `${cell.data.src}`;
 
                 if (cell.data.disableCache) {
-                    imageSrc += `?${performance.now()}`;
+                    imageSrc += `?${Date.now()}`;
                 }
 
                 imageElement.src = imageSrc;
