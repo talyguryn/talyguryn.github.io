@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="60" />
+    <title>Aurora Monitor</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #000;
+        }
+
+        .container {
+            display: flex;
+            height: 100%;
+
+            align-content: stretch;
+            align-items: stretch;
+            flex-direction: column;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .cell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container"></div>
+
+    <script>
+        const blocks = [
+            [
+                {
+                    type: 'image',
+                    data: {
+                        src: 'https://aurorainfo.eu/graph/noaa/dscovr-gsm/gsm_bz_latest_3h.png',
+                        disableCache: true
+                    }
+                },
+                {
+                    type: 'image',
+                    data: {
+                        src: 'https://aurorainfo.eu/graph/noaa/dscovr-solar-wind/solar_wind_bulk_speed_latest_3h.png',
+                        disableCache: true
+                    }
+                }
+            ],
+            [
+                {
+                    type: 'image',
+                    data: {
+                        src: 'https://aurorainfo.eu/graph/noaa/dscovr-solar-wind/solar_wind_proton_density_latest_3h.png',
+                        disableCache: true
+                    }
+                },
+                {
+                    type: 'image',
+                    data: {
+                        src: 'https://aurorainfo.eu/graph/noaa/dscovr-solar-wind/solar_wind_speed_bz_latest_3h.png',
+                        disableCache: true
+                    }
+                }
+            ]
+        ];
+        const containerElement = document.getElementById('container');
+
+        blocks.forEach(row => {
+            const rowElement = document.createElement('DIV');
+
+            rowElement.classList.add('row');
+
+            row.forEach(cell => {
+                const cellElement = document.createElement('DIV');
+
+                cellElement.classList.add('cell');
+
+                /**
+                 * image
+                 */
+                const imageElement = document.createElement('IMG');
+                let imageSrc = `${cell.data.src}`;
+
+                if (cell.data.disableCache) {
+                    imageSrc += `?${performance.now()}`;
+                }
+
+                imageElement.src = imageSrc;
+
+                cellElement.appendChild(imageElement);
+                rowElement.appendChild(cellElement);
+            })
+
+            containerElement.appendChild(rowElement);
+        });
+    </script>
+</body>
+</html>
