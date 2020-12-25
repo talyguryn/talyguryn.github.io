@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+        .row {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+
+        .cell {
+            width: 50px;
+            height: 50px;
+            margin: 1px;
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div  v-for="row in images"
+              :key="JSON.stringify(row)"
+              class="row">
+            <div v-for="cell in row"
+                 :key="cell.src"
+                 class="cell"
+                 v-bind:style="{
+                   backgroundImage: 'url(' + cell.src + ')',
+                   backgroundPosition: 'center center',
+                   backgroundSize: 'cover'
+                 }">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const TYPE = 'ahead';
+        const DELTA = 300;
+        const ROW_LENGHT = 27;
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                images: []
+            },
+            methods: {
+                getImageLink(daysOffset = 0) {
+
+                    let now = new Date();
+
+                    now.setTime(now.getTime() - (daysOffset * 24 * 60 * 60 * 1000));
+
+                    const month = now.toLocaleString('default', { month: 'short' }).toLowerCase();
+                    const day = now.getDate();
+                    const year = now.getFullYear();
+
+                    const TAG = `${month}${day}_${year}`;
+
+                    return `https://www.solarham.net/pictures/farside/${TAG}_${TYPE}.jpg`
+
+                    // return `https://www.solarmonitor.org/data/${now.getFullYear()}/${now.getMonth() < 10 ? 0 : ''}${now.getMonth()}/${now.getDate() < 10 ? 0 : ''}${now.getDate()}/pngs/thmb/stra_00195_thumb.png`
+                    // return `https://www.solarham.net/pictures/${now.getFullYear()}/${month}${day}_${year}_disk.jpg`;
+                }
+            },
+            mounted() {
+                for (let i = 0; i < Math.ceil(DELTA / ROW_LENGHT); i++) {
+                    this.images.push([]);
+                }
+
+                const startValue = 1;
+
+                for (let i = startValue; i < DELTA; i++) {
+                    this.images[Math.floor((i - startValue) / ROW_LENGHT)].push({
+                        src: this.getImageLink(i)
+                    })
+                }
+
+                console.log(this.images);
+            }
+        });
+    </script>
+</body>
+</html>
