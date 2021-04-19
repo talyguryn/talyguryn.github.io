@@ -12,6 +12,8 @@
         const text = document.getElementById('text');
         let i = 0;
 
+        text.innerText = `${i++} seconds since last reload`;
+
         setInterval(() => {
             text.innerText = `${i++} seconds since last reload`;
         }, 1000);
