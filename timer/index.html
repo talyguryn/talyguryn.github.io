@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Timer</title>
+</head>
+<body>
+    <h1 id="text"></h1>
+
+    <script>
+        const text = document.getElementById('text');
+        let i = 0;
+
+        setInterval(() => {
+            text.innerText = `${i++} seconds since last reload`;
+        }, 1000);
+    </script>
+</body>
+</html>
