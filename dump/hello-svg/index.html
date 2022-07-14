@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+  <title>Hello SVG</title>
+
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="container">
+    <svg id="board" width="100%" height="100%"></svg>
+  </div>
+
+  <script src="./script.js"></script>
+  <script>
+    const board = document.getElementById('board');
+    const elements = {
+      rect1: {
+        tag: 'rect',
+        attrs: {
+          x: 0,
+          y: 0,
+          width: 50,
+          height: 50,
+          fill: 'red',
+        },
+        draggable: true,
+      },
+
+      rect2: {
+        tag: 'rect',
+        attrs: {
+          x: 50,
+          y: 50,
+          width: 50,
+          height: 50,
+          fill: 'blue',
+        },
+        draggable: true,
+      },
+
+      // line1: {
+      //   tag: 'line',
+      //   attrs: {
+      //     x1: 0,
+      //     y1: 0,
+      //     x2: 100,
+      //     y2: 100,
+      //     stroke: 'green'
+      //   }
+      // }
+    }
+
+    Object.keys(elements).forEach(item => {
+      createSvgElement(elements[item].tag, elements[item].attrs)
+    });
+
+    // function makeDraggable(evt) {
+    //   var svg = evt.target;
+    //   svg.addEventListener('mousedown', startDrag);
+    //   svg.addEventListener('mousemove', drag);
+    //   svg.addEventListener('mouseup', endDrag);
+    //   svg.addEventListener('mouseleave', endDrag);
+    //   function startDrag(evt) {
+    //   }
+    //   function drag(evt) {
+    //     if (selectedElement) {
+    //       evt.preventDefault();
+    //       var dragX = evt.clientX;
+    //       var dragY = evt.clientY;
+    //       selectedElement.setAttributeNS(null, "x", dragX);
+    //       selectedElement.setAttributeNS(null, "y", dragY);
+    //     }
+    //   }
+    //   function endDrag(evt) {
+    //   }
+    // }
+
+
+  </script>
+</body>
+</html>
