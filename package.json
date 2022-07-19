@@ -1,0 +1,26 @@
+{
+  "name": "talyguryn.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/talyguryn/talyguryn.github.io.git",
+  "author": "Taly <vitalik7tv@yandex.ru>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --mode production",
+    "build:watch": "webpack --mode production --watch"
+  },
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "cssnano": "^5.1.12",
+    "mini-css-extract-plugin": "^2.6.1",
+    "normalize.css": "^8.0.1",
+    "postcss": "^8.4.14",
+    "postcss-import": "^14.1.0",
+    "postcss-loader": "^7.0.1",
+    "postcss-nested": "^5.0.6",
+    "postcss-preset-env": "^7.7.2",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  }
+}

@@ -1,0 +1,42 @@
+header {
+    margin: 0 auto;
+    max-width: var(--layout-max-width);
+
+    padding: 24px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+
+
+}
+
+.header__column {
+    flex: 1;
+}
+
+header div {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    &:nth-child(1) {
+        justify-content: left;
+    }
+
+    &:nth-child(2) {
+        justify-content: center;
+    }
+
+    &:nth-child(3) {
+        justify-content: right;
+    }
+}
+
+.header__name {
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
