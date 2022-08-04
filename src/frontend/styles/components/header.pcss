@@ -8,8 +8,6 @@ header {
     justify-content: space-between;
     align-items: center;
     align-content: center;
-
-
 }
 
 .header__column {
@@ -21,16 +19,14 @@ header div {
     align-items: center;
     gap: 24px;
 
-    &:nth-child(1) {
-        justify-content: left;
-    }
+    justify-content: center;
 
-    &:nth-child(2) {
-        justify-content: center;
-    }
-
-    &:nth-child(3) {
+    &:last-child:not(:first-child) {
         justify-content: right;
+    }
+
+    &:first-child:not(:last-child) {
+        justify-content: left;
     }
 }
 
