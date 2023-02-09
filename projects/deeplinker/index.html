@@ -12,12 +12,10 @@
       params[key] = value;
     });
 
-    if (params.url) {
-      setTimeout(function () { window.location = params.url; }, 3000);
-    }
-
-    if (params.deeplink) {
-      window.location.href = params.deeplink;
-    }
+    window.location.href = params.deeplink;
+    setTimeout(function () {
+      window.location = params.url;
+    }, 500);
   </script>
 </body>
+</html>
