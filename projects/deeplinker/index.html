@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+
+  <script type="text/javascript">
+    const params = {};
+
+    window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) {
+      params[key] = value;
+    });
+
+    if (params.url) {
+      setTimeout(function () { window.location = params.url; }, 3000);
+    }
+
+    if (params.deeplink) {
+      window.location.href = params.deeplink;
+    }
+  </script>
+</body>
