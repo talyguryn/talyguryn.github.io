@@ -1,0 +1,27 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "guryn.ru",
+    "description": "",
+    "home_page_url": "https://blog.guryn.ru",
+    "feed_url": "https://blog.guryn.ru/feed.json",
+    "user_comment": "",
+    "author": {
+        "name": "Виталя"
+    },
+    "items": [
+        {
+            "id": "https://blog.guryn.ru/samba-server-v-lokalnoy-seti.html",
+            "url": "https://blog.guryn.ru/samba-server-v-lokalnoy-seti.html",
+            "title": "Samba сервер в локальной сети",
+            "summary": "Устанавливаем сервис. apt update apt install -y samba Открываем настройки. nano /etc/samba/smb.conf Добавляем настройки папки, которой хотим поделиться. [Transmission] path = /root/storage browseable = yes read only = no guest ok = yes create mask = 0777 directory mask = 0777 force user = root&hellip;",
+            "content_html": "<p>Устанавливаем сервис.</p><pre><code>apt update\napt install -y samba\n</code></pre>\n<p>Открываем настройки.</p><pre><code>nano /etc/samba/smb.conf\n</code></pre>\n<p>Добавляем настройки папки, которой хотим поделиться.</p><pre><code>[Transmission]\n  path = /root/storage\n  browseable = yes\n  read only = no\n  guest ok = yes\n  create mask = 0777\n  directory mask = 0777\n  force user = root\n</code></pre>\n<p>Перезагружаем сервис samba.</p><pre><code>systemctl restart smbd\n</code></pre>\n<p>Теперь эта папка будет доступна в локальной сети с других устройств.</p>",
+            "author": {
+                "name": "Виталя"
+            },
+            "tags": [
+            ],
+            "date_published": "2025-03-04T11:55:17+03:00",
+            "date_modified": "2025-03-04T11:55:17+03:00"
+        }
+    ]
+}

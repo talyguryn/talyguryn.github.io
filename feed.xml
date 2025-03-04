@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+    <title>guryn.ru</title>
+    <link href="https://blog.guryn.ru/feed.xml" rel="self" />
+    <link href="https://blog.guryn.ru" />
+    <updated>2025-03-04T11:55:17+03:00</updated>
+    <author>
+        <name>Виталя</name>
+    </author>
+    <id>https://blog.guryn.ru</id>
+
+    <entry>
+        <title>Samba сервер в локальной сети</title>
+        <author>
+            <name>Виталя</name>
+        </author>
+        <link href="https://blog.guryn.ru/samba-server-v-lokalnoy-seti.html"/>
+        <id>https://blog.guryn.ru/samba-server-v-lokalnoy-seti.html</id>
+
+        <updated>2025-03-04T11:55:17+03:00</updated>
+            <summary>
+                <![CDATA[
+                    Устанавливаем сервис. apt update apt install -y samba Открываем настройки. nano /etc/samba/smb.conf Добавляем настройки папки, которой хотим поделиться. [Transmission] path = /root/storage browseable = yes read only = no guest ok = yes create mask = 0777 directory mask = 0777 force user = root&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>Устанавливаем сервис.</p><pre><code>apt update
+apt install -y samba
+</code></pre>
+<p>Открываем настройки.</p><pre><code>nano /etc/samba/smb.conf
+</code></pre>
+<p>Добавляем настройки папки, которой хотим поделиться.</p><pre><code>[Transmission]
+  path = /root/storage
+  browseable = yes
+  read only = no
+  guest ok = yes
+  create mask = 0777
+  directory mask = 0777
+  force user = root
+</code></pre>
+<p>Перезагружаем сервис samba.</p><pre><code>systemctl restart smbd
+</code></pre>
+<p>Теперь эта папка будет доступна в локальной сети с других устройств.</p>
+            ]]>
+        </content>
+    </entry>
+</feed>
