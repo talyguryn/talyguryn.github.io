@@ -1,89 +1,192 @@
+const resolveImage = (imageModule) => imageModule.default || imageModule;
+
+const articleImages = {
+  1: resolveImage(require("../images/1.jpg")),
+  2: resolveImage(require("../images/2.jpg")),
+  3: resolveImage(require("../images/3.jpg")),
+  4: resolveImage(require("../images/4.jpg")),
+  5: resolveImage(require("../images/5.jpg")),
+  6: resolveImage(require("../images/6.jpg")),
+  7: resolveImage(require("../images/7.jpg")),
+};
+
 module.exports = {
-  time: 1601481483452,
+  time: 1780286400000,
   blocks: [
     {
-      type: 'header',
+      type: "header",
       data: {
-        text: 'Замена газовых пружин',
+        text: "Часы в приборной панели",
         level: 1,
       },
     },
     {
-      type: 'paragraph',
+      type: "paragraph",
       data: {
-        text: 'Появилась необходимость заменить пружины двери багажника — он перестал сам открываться, каждый раз приходилось доталкивать дверь рукой.',
+        text: "В последнее время ощутил нехватку часов в машине. На руку смотреть очень неудобно, а при включенном навигаторе на экране телефона не отображается текущее время. И снова нашел решение в бж pastime.",
       },
     },
     {
-      type: 'paragraph',
+      type: "paragraph",
       data: {
-        text: 'Хоть это и не сильно важно для простого гайда по снятию и установке газовых упоров на шаровидные опоры, но всё же. По каталогу заменителей запчастей для Chevrolet Spark (M200) были найдены пружины&nbsp;<b>Lesjöfors&nbsp;8117705</b>. Они подходят как для установки на заднюю дверь, так и под капот, но об этом в другой раз.',
+        text: "Часы есть во всех комплектациях, но в некоторых просто не вырезано окошко в пластике и отсутствуют кнопки настройки.",
       },
     },
     {
-      type: 'image',
+      type: "paragraph",
       data: {
-        url: 'https://codex.so/upload/redactor_images/o_7365bd194395306b5cc7adc6e3e01162.jpg',
-        caption: 'Lesjöfors 8117705',
+        text: "Начнем с этого самого окошка. Нужно снять приборную панель. Этот процесс я уже описывал в заметке «Замена лампочки подсветки приборной панели».",
+      },
+    },
+    {
+      type: "paragraph",
+      data: {
+        text: "Стекло и пластиковая рамка держатся только на защелках. Но отвертка все же понадобится, чтобы снять плату со светодиодом иммобилайзера.",
+      },
+    },
+    {
+      type: "image",
+      data: {
+        url: articleImages[1],
+        caption: "Разобрал приборную панель",
         withBorder: false,
         stretched: true,
         withBackground: false,
       },
     },
     {
-      type: 'paragraph',
+      type: "paragraph",
       data: {
-        text: 'Для того, чтобы снять старую пружину, необходимо с помощью плоской отвертки подцепить и слегка сместить железную скобу, которая удерживается за шаровидную опору.',
+        text: "На пластике есть контур, по которому должно быть вырезано окошко для часов.",
       },
     },
     {
-      type: 'image',
+      type: "image",
       data: {
-        url: 'https://codex.so/upload/redactor_images/o_ca8a3b377b28f5e56e63b0f68c475453.jpg',
-        caption: '',
+        url: articleImages[2],
+        caption: "",
         withBorder: false,
-        stretched: false,
-        withBackground: true,
+        stretched: true,
+        withBackground: false,
       },
     },
     {
-      type: 'image',
+      type: "paragraph",
       data: {
-        url: 'https://codex.so/upload/redactor_images/o_f0c5cc10da3fa3c9f8d52df2d9013461.jpg',
-        caption: '',
+        text: "В меру своих возможностей стараемся вырезать аккуратное окошко в пластике. Мелкие косяки на гранях не будут сильно заметны.",
+      },
+    },
+    {
+      type: "image",
+      data: {
+        url: articleImages[3],
+        caption: "",
         withBorder: false,
-        stretched: false,
-        withBackground: true,
+        stretched: true,
+        withBackground: false,
       },
     },
     {
-      type: 'paragraph',
+      type: "paragraph",
       data: {
-        text: 'Теперь можно без труда отсоединить пружину от крепления. К слову,&nbsp;<b>уже нужно начинать придерживать дверь багажника</b>&nbsp;— на одном упоре она не удержится, а если попробует захлопнуться в самый неподходящий момент, то может повредить машину или нанести травмы.',
+        text: "Собираем и устанавливаем панель на место.",
       },
     },
     {
-      type: 'paragraph',
+      type: "image",
       data: {
-        text: 'Установка нового упора на шаровидные опоры не составит труда. Необходимо просто вставить и защелкнуть шаровидные опоры в местах крепления.',
-      },
-    },
-    {
-      type: 'image',
-      data: {
-        url: 'https://codex.so/upload/redactor_images/o_1755dc052c7a63cae5ef3c240e6498e1.jpg',
-        caption: '',
+        url: articleImages[4],
+        caption: "",
         withBorder: false,
-        stretched: false,
-        withBackground: true,
+        stretched: true,
+        withBackground: false,
       },
     },
     {
-      type: 'paragraph',
+      type: "paragraph",
       data: {
-        text: 'Теперь если приподнять дверцу багажника, то она сможет открыться сама без прикладывания дополнительных внешних усилий.',
+        text: "Остается только заменить панель с кнопками управления экраном, где отображается одометр и часы.",
+      },
+    },
+    {
+      type: "paragraph",
+      data: {
+        text: "<b>GM 96496270</b> — выключатель приборной панели.",
+      },
+    },
+    {
+      type: "image",
+      data: {
+        url: articleImages[5],
+        caption: "",
+        withBorder: false,
+        stretched: true,
+        withBackground: false,
+      },
+    },
+    {
+      type: "paragraph",
+      data: {
+        text: "Можно и не покупать эту панель, а впаять какие-то кнопки или замыкать определенные провода для настройки часов и минут.",
+      },
+    },
+    {
+      type: "image",
+      data: {
+        url: articleImages[6],
+        caption:
+          "Обозначение контактов штекера в машине, разобранная панель и ее электрическая схема",
+        withBorder: false,
+        stretched: true,
+        withBackground: false,
+      },
+    },
+    {
+      type: "paragraph",
+      data: {
+        text: "Собираем все вместе и включаем зажигание.",
+      },
+    },
+    {
+      type: "image",
+      data: {
+        url: articleImages[7],
+        caption: "",
+        withBorder: false,
+        stretched: true,
+        withBackground: false,
+      },
+    },
+    {
+      type: "paragraph",
+      data: {
+        text: "Теперь нам доступны штатные часы в машине.",
+      },
+    },
+    {
+      type: "paragraph",
+      data: {
+        text: "Настроить часы очень просто. Есть всего три кнопки:",
+      },
+    },
+    {
+      type: "paragraph",
+      data: {
+        text: "<b>H</b> — настройка часа в 12-ти часовом формате;<br><b>M</b> — настройка минут;<br><b>S</b> — округлить время до ближайшего целого часа;",
+      },
+    },
+    {
+      type: "paragraph",
+      data: {
+        text: "Кнопка S позволяет задать время точно по сигналу на радио или телефону. Например, 7:14 будет округлено вниз до 7:00, а 8:50 станет 9:00.",
+      },
+    },
+    {
+      type: "paragraph",
+      data: {
+        text: "Время на часах сбросится, если будет отключен аккумулятор.",
       },
     },
   ],
-  version: '2.18.0',
+  version: "2.18.0",
 };

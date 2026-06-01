@@ -1,21 +1,21 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
 
 module.exports = {
   /**
    * Define entry point
    */
-  entry: path.resolve(__dirname, 'src', 'entry.js'),
+  entry: path.resolve(__dirname, "src", "entry.js"),
 
   /**
    * Set bundle params
    */
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    library: 'app',
-    libraryTarget: 'umd'
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
+    library: "app",
+    libraryTarget: "umd",
   },
 
   /**
@@ -28,21 +28,21 @@ module.exports = {
        */
       {
         test: /\.js$/,
-        exclude: [ /node_modules/ ],
+        exclude: [/node_modules/],
         use: [
           {
-            loader: 'babel-loader',
+            loader: "babel-loader",
             query: {
-              presets: [ '@babel/preset-env' ],
+              presets: ["@babel/preset-env"],
             },
           },
           {
-            loader: 'eslint-loader',
+            loader: "eslint-loader",
             options: {
               fix: false,
             },
           },
-        ]
+        ],
       },
 
       /**
@@ -50,12 +50,8 @@ module.exports = {
        */
       {
         test: /\.(pcss|css)$/,
-        exclude: [ /node_modules/ ],
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader'
-        ],
+        exclude: [/node_modules/],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
       },
 
       /**
@@ -65,14 +61,16 @@ module.exports = {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
-              name: '[path][name].[ext]',
+              esModule: false,
+              name: "[path][name].[ext]",
+              context: path.resolve(__dirname, "src"),
             },
           },
         ],
       },
-    ]
+    ],
   },
 
   /**
@@ -81,16 +79,16 @@ module.exports = {
   plugins: [
     /** Build separated styles bundle */
     new MiniCssExtractPlugin({
-      filename: 'bundle.css'
+      filename: "bundle.css",
     }),
 
     /** Build html file */
     new HtmlWebpackPlugin({
       hash: true,
-      title: 'My Awesome application',
-      myPageHeader: 'Hello World',
-      template: path.resolve(__dirname, 'src', 'index.html'),
-      filename: path.resolve(__dirname, 'dist', 'index.html')
-    })
-  ]
-}
+      title: "My Awesome application",
+      myPageHeader: "Hello World",
+      template: path.resolve(__dirname, "src", "index.html"),
+      filename: path.resolve(__dirname, "dist", "index.html"),
+    }),
+  ],
+};
